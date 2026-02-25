@@ -10,4 +10,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ioc-angular-quadrista-antonio-fernandez';
+
+  constructor() {
+    console.log('Projecte Quadrista ben engrasat i funcionant!');
+  }
 }
