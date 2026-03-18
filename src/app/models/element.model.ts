@@ -1,6 +1,6 @@
 export interface Element {
   id: number;
   name: string;
-  value?: number;
+  value: number;
   category?: string;
 }
