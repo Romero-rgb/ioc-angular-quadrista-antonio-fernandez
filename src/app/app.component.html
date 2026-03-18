@@ -2,6 +2,11 @@
   <h1>Quadrista</h1>
   <p>Antonio Fernández Romero</p>
 </div>
-<div style="max-width: 400px; margin: 40px auto;">
-  <app-targeta-element [element]="elementProva"></app-targeta-element>
-</div>
+<main class="contenidor">
+  <header>
+    <h1>Catàleg d'Elements</h1>
+    <p></p>
+  </header>
+
+  <app-llista-elements [elements]="elements"></app-llista-elements>
+</main>

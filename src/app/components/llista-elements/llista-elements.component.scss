@@ -1,0 +1,28 @@
+.llistat {
+    width: 100%;
+}
+
+.graella {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.missatge-buit {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.missatge-buit p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .graella {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

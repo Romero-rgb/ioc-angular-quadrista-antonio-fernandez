@@ -1,1 +1,10 @@
-<p>llista-elements works!</p>
+<section class="llistat" aria-label="Llistat d'elements">
+    <div *ngIf="elements.length === 0" class="missatge-buit">
+        <p>No hi ha elements disponibles</p>
+    </div>
+
+    <div *ngIf="elements.length > 0" class="graella">
+        <app-targeta-element *ngFor="let element of elements; trackBy: trackById" [element]="element">
+        </app-targeta-element>
+    </div>
+</section>
