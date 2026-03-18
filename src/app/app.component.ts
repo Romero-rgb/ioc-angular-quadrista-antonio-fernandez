@@ -14,5 +14,23 @@ import { BarraCercaComponent } from './components/barra-cerca/barra-cerca.compon
 export class AppComponent {
   title = 'ioc-angular-quadrista-antonio-fernandez';
 
-  elements: Element[] = mockData;
+  fullElements: Element[] = mockData;
+  filterElements: Element[] = this.fullElements;
+  actualSearch = '';
+
+  filterTheElements(textSearch: string): void {
+    this.actualSearch = textSearch;
+
+    if (!textSearch) {
+      this.filterElements = this.fullElements;
+      return;
+    }
+
+    const searchMin = textSearch.toLowerCase();
+    this.filterElements = this.fullElements.filter(
+      (element) =>
+        element.name.toLowerCase().includes(searchMin) ||
+        element.category?.toLowerCase().includes(searchMin),
+    );
+  }
 }

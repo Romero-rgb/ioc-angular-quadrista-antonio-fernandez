@@ -8,5 +8,15 @@
     <p></p>
   </header>
 
-  <app-llista-elements [elements]="elements"></app-llista-elements>
+  <app-barra-cerca (searchChange)="filterTheElements($event)"></app-barra-cerca>
+
+  <div *ngIf="actualSearch" class="info-resultats" aria-live="polite">
+    <p>
+      <strong>{{ filterElements.length }}</strong>
+      {{ filterElements.length === 1 ? 'resultat' : 'resultats' }}
+      per <em>"{{ actualSearch }}"</em>
+    </p>
+  </div>
+
+  <app-llista-elements [elements]="filterElements"></app-llista-elements>
 </main>
