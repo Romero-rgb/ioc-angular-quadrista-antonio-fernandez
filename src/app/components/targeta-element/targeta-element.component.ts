@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Element } from '../../models/element.model';
 
 @Component({
   selector: 'app-targeta-element',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './targeta-element.component.html',
-  styleUrl: './targeta-element.component.scss'
+  styleUrl: './targeta-element.component.scss',
 })
 export class TargetaElementComponent {
-
+  @Input({ required: true }) element!: Element;
 }
