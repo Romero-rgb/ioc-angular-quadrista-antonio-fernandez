@@ -1,4 +1,4 @@
-interface Element {
+export interface    Element {
     id: string;
     name: string;
     numericValue: number;

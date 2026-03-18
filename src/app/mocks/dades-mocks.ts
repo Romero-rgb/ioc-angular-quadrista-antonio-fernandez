@@ -1,6 +1,6 @@
-import {interElement} from '../models/element.model'
+import {Element} from '../models/element.model'
 
-export const mockData: interElement[] = [
+export const mockData: Element[] = [
     {id: '0', name: 'David', numericValue: 1, description: 'Descripció 1'},
     {id: '1', name: 'Antonio', numericValue: 2, description: 'Descripció 2'},
     {id: '2', name: 'Laura', numericValue: 3, description: 'Descripció 3'},
