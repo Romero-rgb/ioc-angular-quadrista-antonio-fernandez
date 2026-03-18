@@ -1,1 +1,26 @@
-<p>barra-cerca works!</p>
+ <form class="formulari-cerca" (ngSubmit)="search()" #formCerca="ngForm">
+      <div class="grup-camp">
+        <label for="camp-cerca">Cerca elements:</label>
+        <div class="contenidor-input">
+          <input type="text" id="camp-cerca" name="search" [(ngModel)]="textSearch" #campCerca="ngModel" minlength="3" placeholder="Mínim 3 caràcters..." aria-describedby="ajuda-cerca error-cerca" class="input-cerca" [class.invalid]="campCerca.invalid && campCerca.touched">
+
+          <button type="submit" [disabled]="formCerca.invalid" class="boto-cerca" aria-label="Cercar elements">
+            <i class="bi bi-search" aria-hidden="true"></i> Cercar
+          </button>
+
+          <button *ngIf="textSearch" type="button" (click)="netejar()" class="boto-netejar" aria-label="Esborrar cerca">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <small id="ajuda-cerca" class="ajuda">
+          Escriu almenys 3 caràcters per cercar
+        </small>
+
+        <div *ngIf="campCerca.invalid && campCerca.touched" id="error-cerca" class="error" role="alert" aria-live="assertive">
+          <span *ngIf="campCerca.errors?.['minlength']">
+            Cal un mínim de 3 caràcters
+          </span>
+        </div>
+      </div>
+    </form>
