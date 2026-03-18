@@ -12,5 +12,4 @@ import { mockData } from './mocks/dades-mocks'
 export class AppComponent {
   title = 'ioc-angular-quadrista-antonio-fernandez';
 
-  mock = mockData;
 }
