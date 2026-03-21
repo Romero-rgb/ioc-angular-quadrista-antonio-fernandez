@@ -1,14 +1,17 @@
 import { Element } from '../models/element.model';
 
 export const mockData: Element[] = [
-  { id: 0, name: 'David', value: 1, category: 'Descripció 1' },
-  { id: 1, name: 'Antonio', value: 2, category: 'Descripció 2' },
-  { id: 2, name: 'Laura', value: 3, category: 'Descripció 3' },
-  { id: 3, name: 'Maria', value: 4, category: 'Descripció 4' },
-  { id: 4, name: 'Juan', value: 5, category: 'Descripció 5' },
-  { id: 5, name: 'Martin', value: 6, category: 'Descripció 6' },
-  { id: 6, name: 'Eli', value: 7, category: 'Descripció 7' },
-  { id: 7, name: 'Lui', value: 8, category: 'Descripció 8' },
-  { id: 8, name: 'Roberto', value: 9, category: 'Descripció 9' },
-  { id: 9, name: 'Carlos', value: 10, category: 'Descripció 10' },
+  { id: 0, name: 'Orbea', value: 200, category: 'Quadre' },
+  { id: 1, name: 'Ritchey', value: 50, category: 'Manillar' },
+  { id: 2, name: 'Selle Italia', value: 40, category: 'Selló' },
+  { id: 3, name: 'Look', value: 30, category: 'Pedals' },
+  { id: 4, name: 'Mavic', value: 15, category: 'Rodes' },
+  { id: 5, name: 'Maxxis', value: 16, category: 'Coberta' },
+  { id: 6, name: 'KMC', value: 40, category: 'Cadena' },
+  { id: 7, name: 'Magura', value: 20, category: 'Frens' },
+  { id: 8, name: 'RockShox', value: 120, category: 'Forquilla' },
+  { id: 9, name: 'SRAM', value: 100, category: 'Desviador' },
+  { id: 10, name: 'Rotor', value: 400, category: 'Plats' },
+  { id: 11, name: 'Shimano', value: 50, category: 'Pinyons' },
+  { id: 12, name: 'Thomson', value: 80, category: 'Tija' },
 ];
