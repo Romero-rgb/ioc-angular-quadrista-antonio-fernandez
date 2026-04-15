@@ -1,0 +1,121 @@
+{
+  "elements": [
+    {
+      "id": "0",
+      "nom": "Orbea",
+      "categoria": "Quadre",
+      "preu": 200,
+      "imatge": "https://placehold.co/600x400?text=Orbea",
+      "popular": true,
+      "stock": 14
+    },
+    {
+      "id": "1",
+      "nom": "Ritchey",
+      "categoria": "Manillar",
+      "preu": 50,
+      "imatge": "https://placehold.co/600x400?text=Ritchey",
+      "popular": false,
+      "stock": 42
+    },
+    {
+      "id": "2",
+      "nom": "Selle Italia",
+      "categoria": "Selló",
+      "preu": 40,
+      "imatge": "https://placehold.co/600x400?text=Selle+Italia",
+      "popular": true,
+      "stock": 5
+    },
+    {
+      "id": "3",
+      "nom": "Look",
+      "categoria": "Pedals",
+      "preu": 30,
+      "imatge": "https://placehold.co/600x400?text=Look",
+      "popular": false,
+      "stock": 28
+    },
+    {
+      "id": "4",
+      "nom": "Mavic",
+      "categoria": "Rodes",
+      "preu": 15,
+      "imatge": "https://placehold.co/600x400?text=Mavic",
+      "popular": true,
+      "stock": 31
+    },
+    {
+      "id": "5",
+      "nom": "Maxxis",
+      "categoria": "Coberta",
+      "preu": 16,
+      "imatge": "https://placehold.co/600x400?text=Maxxis",
+      "popular": false,
+      "stock": 19
+    },
+    {
+      "id": "6",
+      "nom": "KMC",
+      "categoria": "Cadena",
+      "preu": 40,
+      "imatge": "https://placehold.co/600x400?text=KMC",
+      "popular": true,
+      "stock": 8
+    },
+    {
+      "id": "7",
+      "nom": "Magura",
+      "categoria": "Frens",
+      "preu": 20,
+      "imatge": "https://placehold.co/600x400?text=Magura",
+      "popular": false,
+      "stock": 47
+    },
+    {
+      "id": "8",
+      "nom": "RockShox",
+      "categoria": "Forquilla",
+      "preu": 120,
+      "imatge": "https://placehold.co/600x400?text=RockShox",
+      "popular": true,
+      "stock": 3
+    },
+    {
+      "id": "9",
+      "nom": "SRAM",
+      "categoria": "Desviador",
+      "preu": 100,
+      "imatge": "https://placehold.co/600x400?text=SRAM",
+      "popular": false,
+      "stock": 22
+    },
+    {
+      "id": "10",
+      "nom": "Rotor",
+      "categoria": "Plats",
+      "preu": 400,
+      "imatge": "https://placehold.co/600x400?text=Rotor",
+      "popular": true,
+      "stock": 11
+    },
+    {
+      "id": "11",
+      "nom": "Shimano",
+      "categoria": "Pinyons",
+      "preu": 50,
+      "imatge": "https://placehold.co/600x400?text=Shimano",
+      "popular": true,
+      "stock": 39
+    },
+    {
+      "id": "12",
+      "nom": "Thomson",
+      "categoria": "Tija",
+      "preu": 80,
+      "imatge": "https://placehold.co/600x400?text=Thomson",
+      "popular": false,
+      "stock": 25
+    }
+  ]
+}
