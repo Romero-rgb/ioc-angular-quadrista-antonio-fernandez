@@ -4,8 +4,7 @@ import { catchError, map, tap } from 'rxjs';
 import { of } from 'rxjs';
 
 import { ElementCataleg, ElementApiResponse } from '../models/element.model';
-import {
-  adaptarElementApi,
+import {  
   adaptarElementsApi,
 } from '../models/element.adaptador';
 import { environment } from '../../environments/environment.development';
