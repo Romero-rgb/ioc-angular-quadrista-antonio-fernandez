@@ -5,13 +5,13 @@
     </header>
 
     <!-- Estat: Carregant -->
-    <div class="estat-carregant" *ngIf="elementService.carregant() === true">
+    <div class="estat-carregant" *ngIf="elementService.carregant()">
         <div class="spinner"></div>
         <p>Carregant elements...</p>
     </div>
 
     <!-- Estat: Error -->
-    <div class="estat-error" *ngIf="elementService.carregant() === false">
+    <div class="estat-error" *ngIf="!elementService.carregant() && !!elementService.error()">
         <div class="error-icon">⚠️</div>
         <h2>Error al carregar elements</h2>
         <p class="error-missatge">{{ elementService.error() }}</p>
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Estat: Èxit (elements carregats) -->
-    <div class="estat-exit" *ngIf="elementService.carregant() === false">
+    <div class="estat-exit" *ngIf="!elementService.carregant() && !elementService.error()">
         <!-- Missatge si no hi ha elements -->
         <div class="sense-resultats" *ngIf="elementService.elements().length === 0">
             <p>No s'han trobat elements populars</p>
@@ -45,9 +45,3 @@
             </div>
         </div>
     </div>
-
-    <!-- Estat: Inicial (no s'ha carregat res encara) -->
-    <div class="estat-inicial" *ngIf="elementService.carregant() === false">
-        <p>Inicialitzant...</p>
-    </div>
-</div>
