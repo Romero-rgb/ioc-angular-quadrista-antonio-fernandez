@@ -75,6 +75,19 @@ export class ElementService {
       .subscribe();
   }
 
+  codiDisponible(codi: string): Promise<boolean> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.http.get<ElementApiResponse[]>(`${this.apiUrl}/elements?id=${codi}`)
+          .subscribe({
+            next: (elements) => resolve(elements.length === 0),
+            error: () => resolve(false)
+          });
+      }, 500);  
+    });
+  }
+
+
   private gestionarError(error: HttpErrorResponse): string {
     if (error.error instanceof ErrorEvent) {
       return `Error de xarxa: ${error.error.message}`;
