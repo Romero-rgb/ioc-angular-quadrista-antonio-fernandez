@@ -2,7 +2,7 @@
   <h2>Els meus preferits ({{ preferitsService.preferits().length }})</h2>
 
   <div class="llista-preferits" *ngIf="preferitsService.preferits().length > 0">
-    <div class="preferit-item" *ngFor="let preferit of preferitsService.preferits()" [class.seleccionat]="preferitSeleccionat?.element.id === preferit.element.id">
+    <div class="preferit-item" *ngFor="let preferit of preferitsService.preferits()" [class.seleccionat]="preferitSeleccionat?.element?.id === preferit.element.id">
       <div class="preferit-info" (click)="seleccionarPreferit(preferit)">
         <h3>{{ preferit.element.titol }}</h3>
         <p class="notes-count">{{ preferit.notes.length }} notes</p>
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <button type="button" class="btn-afegir-nota" (click)="afegirNota()" [disabled]="notes.at(notes.length - 1)?.invalid">Afegir nota</button>
+      <button type="button" class="btn-afegir-nota" (click)="afegirNota()" [disabled]="notes.at(notes.length - 1).invalid">Afegir nota</button>
     </form>
   </div>
 </div>
