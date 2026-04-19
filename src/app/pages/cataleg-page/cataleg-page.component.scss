@@ -42,8 +42,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Estat: Error
@@ -107,6 +112,7 @@
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 
   &:hover {
     transform: translateY(-4px);
@@ -117,6 +123,34 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
+  }
+
+  .btn-preferit {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: white;
+    border: 2px solid #f39c12;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &.actiu {
+      background-color: #f39c12;
+      color: white;
+    }
   }
 
   .element-info {
