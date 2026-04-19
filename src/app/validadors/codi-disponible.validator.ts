@@ -16,7 +16,7 @@ export function codiDisponibleValidator(
     }
 
     return of(control.value).pipe(
-      delay(500), // Simula latència de xarxa
+      delay(500),
       map(async (codi: string) => {
         const disponible = await elementService.codiDisponible(codi);
         return disponible ? null : { codiNoDisponible: { value: codi } };

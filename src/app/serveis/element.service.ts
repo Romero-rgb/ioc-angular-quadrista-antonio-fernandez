@@ -4,9 +4,7 @@ import { catchError, map, tap } from 'rxjs';
 import { of } from 'rxjs';
 
 import { ElementCataleg, ElementApiResponse } from '../models/element.model';
-import {  
-  adaptarElementsApi,
-} from '../models/element.adaptador';
+import { adaptarElementsApi } from '../models/element.adaptador';
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
@@ -48,7 +46,8 @@ export class ElementService {
   }
 
   cercar(terme: string): void {
-    if (!terme.trim()) {
+    const termeNormalitzat = (terme ?? '').trim();
+    if (!termeNormalitzat) {
       this.obtenirPopulars();
       return;
     }
@@ -57,7 +56,7 @@ export class ElementService {
     this.errorSignal.set('');
 
     this.http
-      .get<ElementApiResponse[]>('${this.apiUrl}/elements?q=${terme}')
+      .get<ElementApiResponse[]>(`${this.apiUrl}/elements?q=${terme}`)
       .pipe(
         map(adaptarElementsApi),
         tap((elements) => {
@@ -78,15 +77,15 @@ export class ElementService {
   codiDisponible(codi: string): Promise<boolean> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        this.http.get<ElementApiResponse[]>(`${this.apiUrl}/elements?id=${codi}`)
+        this.http
+          .get<ElementApiResponse[]>(`${this.apiUrl}/elements?id=${codi}`)
           .subscribe({
             next: (elements) => resolve(elements.length === 0),
-            error: () => resolve(false)
+            error: () => resolve(false),
           });
-      }, 500);  
+      }, 500);
     });
   }
-
 
   private gestionarError(error: HttpErrorResponse): string {
     if (error.error instanceof ErrorEvent) {
