@@ -60,6 +60,9 @@ export class FormulariCercaComponent implements OnInit {
     const control = this.formulariCerca.get('terme');
     if (control?.hasError('minlength')) {
       return 'Mínim 2 caràcters';
+    } else if (control?.hasError('maxlength')) {
+      return 'Màxim 50 caràcters';
+    } else {
     }
     return '';
   }
