@@ -7,9 +7,9 @@
 Model utilitzat dins l'aplicació Angular:
 
 ```typescript
-interface ElementCataleg {
+export interface ElementCataleg {
   id: string;
-  nom: string;
+  titol: string;
   descripcio: string;
   categoria: string;
   preu: number;
@@ -24,7 +24,7 @@ interface ElementCataleg {
 Format de les dades que retorna l'API:
 
 ```typescript
-interface ElementApiResponse {
+export interface ElementApiResponse {
   id: string;
   nom: string;
   descripcio: string;
@@ -42,6 +42,7 @@ interface ElementApiResponse {
 
 Transforma un element de l'API al format intern:
 
+- Canvia `nom` → `titol`
 - Canvia `popular` → `esPopular`
 - Canvia `imatge` → `imatgeUrl`
 - Canvia `stock` → `unitats`
@@ -56,7 +57,7 @@ Aplica `adaptarElementApi()` a un array d'elements.
 | Camp API     | Camp intern  | Transformació |
 | ------------ | ------------ | ------------- |
 | `id`         | `id`         | Cap           |
-| `nom`        | `nom`        | Cap           |
+| `nom`        | `titol`      | Renombrat     |
 | `descripcio` | `descripcio` | Cap           |
 | `categoria`  | `categoria`  | Cap           |
 | `preu`       | `preu`       | Cap           |
