@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', redirectTo: 'cataleg', pathMatch: 'full'},
     { path: 'cataleg', component: CatalegPageComponent, title: 'Cataleg'},
     { path: 'cerca', component: CercaComponent, title: 'Cerca'},
-    { path: 'detall', component: DetallComponent, title: 'Detall'},
+    { path: 'detall/:id', component: DetallComponent, title: 'Detall'},
     { path: 'preferits', component: PreferitsComponent, title: 'Preferits'},
     { path: 'login', component: LoginComponent, title: 'Login'},
     {path: '**', redirectTo: 'cataleg'},
