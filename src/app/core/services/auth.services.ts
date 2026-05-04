@@ -10,8 +10,8 @@ export class AuthService {
 
   constructor() {
     const savedUser = localStorage.getItem('user');
-    if(savedUser) {
-        this.actualUser$.next(JSON.parse(savedUser))
+    if (savedUser) {
+      this.actualUser$.next(JSON.parse(savedUser));
     }
   }
 
@@ -25,21 +25,31 @@ export class AuthService {
 
   login(email: string, password: string): Observable<boolean> {
     return of(true).pipe(
-      delay(500),  
+      delay(500),
       map(() => {
-        if (email && password) {
+        if (email === 'admin@test.com' && password === '1234') {
           const usuari: User = {
             id: 1,
             nom: email.split('@')[0],
             email,
-            rol: email.includes('admin') ? 'admin' : 'usuari'
+            rol: email.includes('admin') ? 'admin' : 'usuari',
           };
           this.actualUser$.next(usuari);
-          localStorage.setItem('usuari', JSON.stringify(usuari));
+          localStorage.setItem('user', JSON.stringify(usuari));
+          return true;
+        } else if (email === 'user@test.com' && password === '1234') {
+          const usuari: User = {
+            id: 1,
+            nom: email.split('@')[0],
+            email,
+            rol: email.includes('admin') ? 'admin' : 'usuari',
+          };
+          this.actualUser$.next(usuari);
+          localStorage.setItem('user', JSON.stringify(usuari));
           return true;
         }
         return false;
-      })
+      }),
     );
   }
 
