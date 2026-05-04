@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../../core/models/item.model';
 import { ItemService } from '../../core/services/item.service';
 import { CommonModule } from '@angular/common';
+import { PreferitsService } from '../../core/services/Preferits.services';
 
 @Component({
   selector: 'app-detall',
@@ -20,6 +21,7 @@ export class DetallComponent implements OnInit {
   private itemService = inject(ItemService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private preferitsService = inject(PreferitsService);
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -57,5 +59,17 @@ export class DetallComponent implements OnInit {
       const prevId = this.itemId - 1;
       this.router.navigate(['/detall', prevId]);
     }
+  }
+
+  addToPreferits(): void {
+    if (this.item) {
+      this.preferitsService.addPreferit(this.item);
+    }
+  }
+
+  checkIfPreferit(): boolean {
+    if (!this.item) return false;
+    const llista = this.preferitsService.getPreferits();
+    return llista.some((p) => p.id === this.item!.id);
   }
 }

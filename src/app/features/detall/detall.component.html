@@ -27,6 +27,11 @@
       <p>{{ item.body }}</p>
     </div>
 
+    <div class="detail-actions-favs">
+      <button (click)="addToPreferits()" [disabled]="checkIfPreferit()" class="btn-preferit">
+        {{ checkIfPreferit() ? '⭐ Ja és a preferits' : '☆ Afegir a preferits' }}</button>
+    </div>
+
     <div class="detail-actions">
       <button (click)="goToPrevious()" [disabled]="itemId <= 1" class="btn-secondary">← Anterior</button>
       <button (click)="goToNext()" [disabled]="itemId >= 100" class="btn-secondary">Següent →</button>

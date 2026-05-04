@@ -1,1 +1,20 @@
-<p>preferits works!</p>
+<div class="container">
+    <h2>Els meus preferits ({{ itemsPreferits.length }})</h2>
+
+    <div *ngIf="itemsPreferits.length === 0" class="empty-state">
+        <p>Encara no tens cap element a preferits.</p>
+        <a routerLink="/cataleg" class="btn-tornar">Tornar al catàleg</a>
+    </div>
+
+    <div *ngIf="itemsPreferits.length > 0" class="items-grid">
+        <div *ngFor="let item of itemsPreferits" class="item-card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.body | slice:0:100 }}...</p>
+            
+            <div class="card-actions">
+                <button [routerLink]="['/detall', item.id]" class="btn-veure">Veure detall</button>
+                <button (click)="removeFromPreferits(item.id)" class="btn-treure">Treure de preferits</button>
+            </div>
+        </div>
+    </div>
+</div>
