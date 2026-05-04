@@ -9,7 +9,7 @@ A continuació es detalla el mapa de rutes configurat a l'aplicació segons l'ar
 | `/` (ruta buida) | _Redirecció_           | Públic   | Redirigeix automàticament a `/cataleg` (`pathMatch: 'full'`).              |
 | `/cataleg`       | `CatalegPageComponent` | Públic   | Pàgina principal amb el llistat d'elements del catàleg.                    |
 | `/cerca`         | `CercaComponent`       | Públic   | Vista dedicada a la cerca d'elements.                                      |
-| `/detall/:id`    | `DetallComponent`      | Públic   | Vista de detall d'un element específic, rebent el paràmetre dinàmic `:id`. |
+| `/detall/:id`    | `DetallComponent`      | Públic   | Vista de detall d'un element específic, rebent el paràmetre dinàmic `:id`. Només es pot entrar desde la targeta dún element |
 | `/preferits`     | `PreferitsComponent`   | Privat\* | Secció de preferits de l'usuari                                            |
 | `/login`         | `LoginComponent`       | Públic   | Formulari d'inici de sessió de l'aplicació.                                |
 | `**` (wildcard)  | _Redirecció_           | Públic   | Captura qualsevol URL no reconeguda i redirigeix a `/cataleg`.             |
