@@ -1,31 +1,54 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, of, delay, map } from "rxjs";
-import { User } from "../models/user.model";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of, delay, map } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-    private actualUser$ = new BehaviorSubject<User | null>(null);
+  private actualUser$ = new BehaviorSubject<User | null>(null);
 
-    isAutenthicate(): boolean {
-        return this.actualUser$.value !== null;
+  constructor() {
+    const savedUser = localStorage.getItem('user');
+    if(savedUser) {
+        this.actualUser$.next(JSON.parse(savedUser))
     }
+  }
 
-    giveUser(): Observable<User | null> {
-        return this.actualUser$.asObservable();
-    }
+  isAutenthicate(): boolean {
+    return this.actualUser$.value !== null;
+  }
 
-    login(email: string, password: string): boolean {
-        if(email ==='admin@test.com' && password ==='1234') {
-            this.actualUser$.next({id: 1, nom: 'Admin', email, rol: 'admin'});
-            return true;
+  giveUser(): Observable<User | null> {
+    return this.actualUser$.asObservable();
+  }
+
+  login(email: string, password: string): Observable<boolean> {
+    return of(true).pipe(
+      delay(500),  
+      map(() => {
+        if (email && password) {
+          const usuari: User = {
+            id: 1,
+            nom: email.split('@')[0],
+            email,
+            rol: email.includes('admin') ? 'admin' : 'usuari'
+          };
+          this.actualUser$.next(usuari);
+          localStorage.setItem('usuari', JSON.stringify(usuari));
+          return true;
         }
         return false;
-    }
+      })
+    );
+  }
 
-    logout(): void {
-        this.actualUser$.next(null);
-    }
+  logout(): void {
+    this.actualUser$.next(null);
+    localStorage.removeItem('user');
+  }
 
+  isAdmin(): boolean {
+    return this.actualUser$.value?.rol === 'admin';
+  }
 }
