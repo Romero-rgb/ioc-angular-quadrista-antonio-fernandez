@@ -1,7 +1,7 @@
 <div class="container">
-    <h2>Catàleg complet de peces)</h2>
+    <h2>Catàleg complet de peces</h2>
 
-    
+
     <!-- Loading -->
     <div *ngIf="loading" class="loading">Carregant elements...</div>
 
@@ -9,11 +9,11 @@
     <div *ngIf="error" class="error">{{ error }}</div>
 
     <!-- Llistat -->
-    <div *ngIf="!loading && !error" class="items-grid">
-        <div *ngFor="let item of items; trackBy: trackByItemId" class="item-card" (click)="viewDetail(item.id)">
+    <cdk-virtual-scroll-viewport *ngIf="!loading && !error" itemSize="140" class="viewport-scroll">
+        <div *cdkVirtualFor="let item of items; trackBy: trackByItemId" class="item-card" (click)="viewDetail(item.id)">
             <h3>{{ item.title }}</h3>
             <p>{{ item.body | slice:0:100 }}...</p>
             <span class="item-id">ID: {{ item.id }}</span>
         </div>
-    </div>
+    </cdk-virtual-scroll-viewport>
 </div>

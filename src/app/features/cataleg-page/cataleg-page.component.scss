@@ -55,3 +55,40 @@
     font-size: 0.875rem;
     margin-top: 1rem;
 }
+
+.viewport-scroll {
+    height: 500px;
+    width: 100%;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    .item-card {
+        height: 140px;
+        box-sizing: border-box;
+        background: white;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eaeaea;
+        cursor: pointer;
+
+        h3 {
+            margin: 0 0 0.5rem 0;
+            color: #2196F3;
+        }
+
+        p {
+            margin: 0;
+            color: #666;
+        }
+
+        .item-id {
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        &:hover {
+            background: #f0f8ff;
+        }
+    }
+}
