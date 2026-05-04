@@ -1,5 +1,35 @@
-<div style="padding: 2rem; text-align: center;">
-    <h2>Vista de Detall del Catàleg</h2>
+<div class="container">
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">Carregant detall...</div>
 
-    <h1 style="color: blue;">{{ elementID }}</h1>
+  <!-- Error -->
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+    <button (click)="goBack()" class="btn-primary">Tornar al llistat</button>
+  </div>
+
+  <!-- Detall -->
+  <div *ngIf="item && !loading" class="detail">
+    <div class="detail-header">
+      <button (click)="goBack()" class="btn-back">← Tornar</button>
+      <span class="item-badge">ID: {{ item.id }}</span>
+    </div>
+
+    <h1>{{ item.title }}</h1>
+
+    <div class="detail-meta">
+      <span>Usuari ID: {{ item.userId }}</span>
+      <span>Element: {{ item.id }} / 100</span>
+    </div>
+
+    <div class="detail-content">
+      <h3>Descripció completa</h3>
+      <p>{{ item.body }}</p>
+    </div>
+
+    <div class="detail-actions">
+      <button (click)="goToPrevious()" [disabled]="itemId <= 1" class="btn-secondary">← Anterior</button>
+      <button (click)="goToNext()" [disabled]="itemId >= 100" class="btn-secondary">Següent →</button>
+    </div>
+  </div>
 </div>
