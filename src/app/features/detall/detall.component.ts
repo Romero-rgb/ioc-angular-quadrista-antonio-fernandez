@@ -1,4 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  inject,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../../core/models/item.model';
 import { ItemService } from '../../core/services/item.service';
@@ -11,6 +17,7 @@ import { PreferitsService } from '../../core/services/Preferits.services';
   imports: [CommonModule],
   templateUrl: './detall.component.html',
   styleUrl: './detall.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetallComponent implements OnInit {
   item: Item | null = null;
@@ -22,6 +29,8 @@ export class DetallComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private preferitsService = inject(PreferitsService);
+
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -36,11 +45,13 @@ export class DetallComponent implements OnInit {
       next: (data) => {
         this.item = data;
         this.loading = false;
+        this.changeDetectorRef.markForCheck();
       },
       error: (err) => {
         this.error = 'Element no trobat';
         this.loading = false;
         console.error(err);
+        this.changeDetectorRef.markForCheck();
       },
     });
   }

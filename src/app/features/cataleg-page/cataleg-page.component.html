@@ -10,10 +10,8 @@
 
     <!-- Llistat -->
     <cdk-virtual-scroll-viewport *ngIf="!loading && !error" itemSize="140" class="viewport-scroll">
-        <div *cdkVirtualFor="let item of items; trackBy: trackByItemId" class="item-card" (click)="viewDetail(item.id)">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.body | slice:0:100 }}...</p>
-            <span class="item-id">ID: {{ item.id }}</span>
-        </div>
+        <app-item-card *cdkVirtualFor="let item of items; trackBy: trackByItemId" class="item-card" [item]="item"
+            (cardClick)="viewDetail($event)">
+        </app-item-card>
     </cdk-virtual-scroll-viewport>
 </div>

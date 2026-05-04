@@ -1,1 +1,5 @@
-<p>item-card works!</p>
+<div class="item-card" (click)="onCardClick()">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.body  | slice:0:100 }}...</p>
+    <span class="item-id">ID: {{ item.id }}</span>
+</div>

@@ -4,11 +4,12 @@ import { ItemService } from '../../core/services/item.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ItemCardComponent } from '../../shared/components/item-card/item-card.component';
 
 @Component({
   selector: 'app-cataleg-page',
   standalone: true,
-  imports: [CommonModule, ScrollingModule],
+  imports: [CommonModule, ScrollingModule, ItemCardComponent],
   templateUrl: './cataleg-page.component.html',
   styleUrl: './cataleg-page.component.scss',
 })

@@ -1,0 +1,42 @@
+
+:host {
+    display: block;
+    height: 140px; 
+}
+
+.item-card {
+    height: 100%;
+    box-sizing: border-box;
+    background: white;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #f0f8ff;
+    }
+
+    h3 {
+        margin: 0 0 0.5rem 0;
+        color: #2196F3;
+        font-size: 1.1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .item-id {
+        font-weight: bold;
+        font-size: 0.8rem;
+        color: #999;
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+}
