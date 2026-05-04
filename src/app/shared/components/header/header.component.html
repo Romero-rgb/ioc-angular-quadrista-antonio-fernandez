@@ -11,7 +11,15 @@
                 class="nav-link"> Catàleg </a>
             <a routerLink="/cerca" routerLinkActive="active" class="nav-link"> Cerca </a>
             <a routerLink="/preferits" routerLinkActive="active" class="nav-link"> Meus preferits </a>
-            <a routerLink="/login" routerLinkActive="active" class="nav-link"> Login </a>
+
+            <div class="auth-status" *ngIf="user$ | async as user; else noAutenticat">
+                <span class="usuari-nom">Hola, {{user.nom}}</span>
+                <button (click)="logout()" class="btn-logout"> Sortir</button>
+            </div>
+            <ng-template #noAutenticat>
+                <a routerLink="/login" routerLinkActive="active" class="nav-link"> Login </a>
+            </ng-template>
+
         </nav>
     </div>
 
